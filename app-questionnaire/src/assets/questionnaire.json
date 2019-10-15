@@ -1,0 +1,16 @@
+{
+  "questionnaire": {
+    "id": {},
+    "limite_question": {},
+    "question": {
+      "id_question": {},
+      "intitule": {},
+      "reponses": {
+        "value": {},
+        "phrase": {},
+        "checked": {}
+      },
+      "validee": {}
+    }
+  }
+}
