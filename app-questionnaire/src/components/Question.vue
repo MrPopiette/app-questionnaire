@@ -19,32 +19,7 @@
     name: "Question"
   }
 
-  var questionnairevue = new Vue({
-    el: "#questionnairevue", // l'élément sur lequel attacher la vue
-    created: function () {
-      // code lancé au démarrage
-    },
-    mounted: function () {
-      // code lancé quand la vue est attachée à la page
-    },
-    updated: function () {
-      // code lancé quand la vue est mise à jour
-    },
-    watch: function () {
-    },
-    destroyed: function () {
-      // code lancé quand la vue est détruite
-    },
-    data: {},
-    filters: {},
-    methods: {
-      // ici les fonctions à rendre disponibles dans le HTML
-    },
-    computed: {
-      // ici on met les données à recalculer à la volée
-      // à chaque refresh
-    }
-  })
+
 
 
 
