@@ -16,30 +16,36 @@
 </template>
 
 <script>
-  export default {
-    name: "Form",
-    data() {
-      return {
-        input: {
-          prenom: "",
-          nom: "",
-          societe: ""
-        }
-      }
-    },
-    methods: {
-      login() {
-        if (this.input.prenom != "" && this.input.nom != "" && this.input.societe != "") {
-          console.log("connection")
-        } else {
-          console.log("SPARTAAAAAAAAAAA")
-        }
-      }
-    },
-    computed: {
+/* eslint-disable eqeqeq */
 
+export default {
+  name: 'Form',
+  data () {
+    return {
+      input: {
+        prenom: '',
+        nom: '',
+        societe: ''
+      }
     }
+  },
+  methods: {
+    login: function () {
+      if (this.prenom !== '' && this.nom !== '' && this.societe !== '') {
+        console.log('connection')
+        // PROD :  location.replace('https://mrpopiette.github.io/?#/questionnaire')
+        // DEV :
+
+        location.replace('http://localhost:8080/#/questionnaire')
+      } else {
+        console.log('SPARTAAAAAAAAAAA')
+      }
+    }
+  },
+  computed: {
+
   }
+}
 
 </script>
 

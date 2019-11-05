@@ -5,8 +5,9 @@
   </div>
 </template>
 
-
 <script lang="ts">
+/* eslint-disable indent */
+
   import { Component, Vue } from 'vue-property-decorator'
   import Form from '@/components/Form.vue' // @ is an alias to /src
 

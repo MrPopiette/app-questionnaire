@@ -1,27 +1,27 @@
+<!--suppress ALL -->
 <template>
-
   <div class="question">
     <!-- Question a get d'un JSON -->
     <label></label>
   </div>
-
-  <div class="wrapper">
-    <div class="box content">Content
-      <br/> More content than we had before so this column is now quite tall.
-    </div>
-    <div class="box footer">Footer</div>
-  </div>
-
 </template>
 
 <script>
-  export default {
-    name: "Question"
+  import questionnaireJson from '../assets/questionnaire.json'
+
+  function choixQuestion(int) {
+    var choix = questionnaire.valueOf(int)
+
   }
-
-
-
-
+  
+export default {
+  name: 'Question',
+  data(){
+    return {
+      leJson = questionnaireJson
+    }
+  }
+}
 
 </script>
 
