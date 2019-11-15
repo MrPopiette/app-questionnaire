@@ -116,7 +116,7 @@
 
 
         if (this.MMcompteurQuestion == MMJson.limite_question) {
-          location.replace('http://localhost:8080/#/' + this.MMcompteurPoints);
+          location.replace('https://mrpopiette.github.io');
           // future page de resultat
         } else {
           this.MMvalue1 = false;
