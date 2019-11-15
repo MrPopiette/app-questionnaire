@@ -1,18 +1,18 @@
 <template>
   <div class="box footer">
-    {{ myJson.nom }} {{ myJson.prenom }}
+    {{ MMUserJson.nom }} {{ MMUserJson.prenom }}
   </div>
 </template>
 
 <script>
 /* eslint-disable indent */
-import userJson from '../assets/user.json'
+import userJson from '../jsons/user.json'
 
   export default {
     name: 'UserDetails',
     data () {
       return {
-        myJson: userJson
+        MMUserJson: userJson
       }
     }
   }

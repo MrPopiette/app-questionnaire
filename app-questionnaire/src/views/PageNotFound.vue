@@ -9,6 +9,7 @@
 export default {
   name: 'PageNotFound'
 }
+// Page de redirection
 </script>
 
 <style scoped>

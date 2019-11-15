@@ -2,21 +2,24 @@
   <div class="questionnaire">
     <div class="wrapper">
       <div class="box header">
-        Question N° (value)
+        Question N° {{ this.MMcompteurQuestion + 1}}
       </div>
       <div class="box question">
-        Question a recuperer du JSON
+        <span> {{ this.MMmyJson[this.MMcompteurQuestion].intitule }}</span>
       </div>
       <div class="box reponse">
         <div class="checkbox">
-          <ul>
-            <input type="checkbox" id="value1"/> <span class="box spanRep"> Rep 1 </span> <br>
-            <input type="checkbox" id="value2"/> <span class="box spanRep"> Rep 2 </span> <br>
-            <input type="checkbox" id="value3"/> <span class="box spanRep"> Rep 3 </span> <br>
-          </ul>
+          <input type="checkbox" id="value1"/> <span class="box spanRep"> {{this.MMmyJson[this.MMcompteurQuestion].reponses[0].value}} </span>
+          <br>
+          <input type="checkbox" id="value2"/> <span class="box spanRep"> {{this.MMmyJson[this.MMcompteurQuestion].reponses[1].value}} </span>
+          <br>
+          <input type="checkbox" id="value3"/> <span class="box spanRep"> {{this.MMmyJson[this.MMcompteurQuestion].reponses[2].value}} </span>
+          <br>
         </div>
-        <button type="submit" v-on:click="nextQuestion()"> Send</button>
+        <button type="submit" v-on:click="MMnextQuestion()"> Send</button>
       </div>
+
+      <!-- Valeur fausse pour futur feature (Recuperation des donnees du formulaire) -->
       <UserDetails></UserDetails>
     </div>
   </div>
@@ -80,34 +83,47 @@
 </style>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator'
-import Question from '@/components/Question.vue'
-import HelloWorld from '@/components/HelloWorld.vue' // @ is an alias to /src
-import UserDetails from '@/components/UserDetails.vue'
-import questionnaireJson from '../assets/questionnaire.json'
+  import UserDetails from '@/components/MMUserDetails.vue'
+  import MMJson from '../jsons/questionnaire.json'
 
-function nextQuestion () {
-  var questionIterator = 1
-  if (questionIterator == questionnaireJson.questionnaire.question.id_question[1]){
-    console.log(99999999999999)
-  }
-  return questionIterator
-}
+  export default {
+    name: 'questionnaire',
+    data: () => ({
+      MMcompteurQuestion: 0,
+      MMmyJson: MMJson.question,
+      MMcompteurPoints: 0,
+      // valeur des checkbox recuperees pour connaitre la bonne reponse et le score, initialisee a faux
+      MMvalue1: false,
+      MMvalue2: false,
+      MMvalue3: false
+    }),
+    components: {
+      UserDetails,
+    },
+    methods: {
+      MMnextQuestion: function () {
+        console.log("Nbre question :" + (this.MMcompteurQuestion + 1 ));
+        this.MMcompteurQuestion++;
+        this.MMvalue1 = document.getElementById("value1");
+        this.MMvalue2 = document.getElementById("value2");
+        this.MMvalue3 = document.getElementById("value3");
 
-@Component({
-  components: {
-    UserDetails
-  }
-})
-export default class Questionnaire extends Vue {
-  created () {
-    nextQuestion()
-  }
+        if ((this.MMvalue1.checked == this.MMmyJson[this.MMcompteurQuestion-1].reponses[0].checked && this.MMvalue1.checked == true) || (this.MMvalue2.checked == this.MMmyJson[this.MMcompteurQuestion-1].reponses[1].checked && this.MMvalue2.checked == true) || (this.MMvalue3.checked == this.MMmyJson[this.MMcompteurQuestion-1].reponses[2].checked && this.MMvalue3.checked == true)) {
+          this.MMcompteurPoints++;
+        }
 
-  data () {
-    return {
-      myJson: questionnaireJson
+        console.log("Nbre bonnes reponses : " + this.MMcompteurPoints);
+
+
+        if (this.MMcompteurQuestion == MMJson.limite_question) {
+          location.replace('http://localhost:8080/#/' + this.MMcompteurPoints);
+          // future page de resultat
+        } else {
+          this.MMvalue1 = false;
+          this.MMvalue2 = false;
+          this.MMvalue3 = false;
+        }
+      }
     }
   }
-}
 </script>

@@ -1,0 +1,12 @@
+{
+  "user" : {} ,
+    "_comment":"id_questionnaire = Faux questionnaire rempli pour tester les scores plus tard // fausse recuperation de prenom de la page du formulaire A changer si utilisation de PouchDB",
+    "id_questionnaire": [
+      1,
+      2,
+      3
+    ],
+    "prenom": "Maxime",
+    "nom": "Monnier",
+    "societe": "Supra Stevia"
+}

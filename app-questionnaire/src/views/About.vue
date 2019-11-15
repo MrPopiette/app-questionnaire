@@ -1,7 +1,7 @@
 <template>
   <div class="about">
-    <h1>Page temporaire pour le formulaire de connexion</h1>
-    <Form></Form>
+    <h1>Connexion au test de securite pour EEV SAS</h1>
+    <MMForm></MMForm>
   </div>
 </template>
 
@@ -9,11 +9,11 @@
 /* eslint-disable indent */
 
   import { Component, Vue } from 'vue-property-decorator'
-  import Form from '@/components/Form.vue' // @ is an alias to /src
+  import MMForm from '@/components/MMForm.vue' // @ is an alias to /src
 
   @Component({
     components: {
-      Form
+      MMForm
     }
   })
   export default class About extends Vue {}

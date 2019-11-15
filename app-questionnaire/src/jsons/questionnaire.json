@@ -1,0 +1,96 @@
+{
+    "id": 4,
+    "id_user": 1,
+    "_comment": "limite_question = demande de limitation du pool de questions par le client",
+    "limite_question": 5,
+    "question": [
+      {
+        "intitule": "Quelle est la capitale de la République de Djibouti ?",
+        "reponses": [
+          {
+            "value": "Montréal",
+            "checked": false,
+            "_comment": "index = position de la question + valeur //// checked = Reponse bonne ou pas, false pour non"
+          },
+          {
+            "value": "Paris",
+            "checked": false
+          },
+          {
+            "value": "Djibouti",
+            "checked": true
+          }
+        ]
+      },
+      {
+        "intitule": "Il y a une position spéciale pour les victimes évanouies. De laquelle s'agit-il ?",
+        "reponses": [
+          {
+            "value": "PNL (Peace N' Lovés)",
+            "checked": false
+          },
+          {
+            "value": "PNS (Position Normal de Sécurité)",
+            "checked": false
+          },
+          {
+            "value": "PLS (Position Latéral de Sécurité)",
+            "checked": true
+          }
+        ]
+      },
+      {
+        "intitule": "Comment s'appelait l'homme qui a découvert que la Terre est ronde ?",
+        "reponses": [
+          {
+            "value": "Gilgamesh",
+            "checked": false
+          },
+          {
+            "value": "Casimir",
+            "checked": false
+          },
+          {
+            "value": "Galilée",
+            "checked": true
+          }
+        ]
+      },
+      {
+        "intitule": "Comment s'appelait l'homme qui a découvert le Canada ?",
+        "reponses": [
+          {
+            "value": "Alexandre Gaultier",
+            "checked": false
+          },
+          {
+            "value": "Justin Trudeau",
+            "checked": false
+          },
+          {
+            "value": "Jacques Cartier",
+            "checked": true
+          }
+        ]
+      },
+      {
+        "intitule": "Qu'est ce qu'on aime le plus ? ",
+        "reponses": [
+          {
+            "value": "Les chats",
+            "checked": false
+          },
+          {
+            "value": "Le café",
+            "checked": false
+          },
+          {
+            "value": "VueJs",
+            "checked": true
+          }
+        ]
+      }
+    ]
+}
+
+
