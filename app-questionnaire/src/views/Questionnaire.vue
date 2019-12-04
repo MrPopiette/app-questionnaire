@@ -2,21 +2,21 @@
   <div class="questionnaire">
     <div class="wrapper">
       <div class="box header">
-        Question N° {{ this.MMcompteurQuestion + 1}}
+        Question N° {{ MMcompteurQuestion + 1}}
       </div>
       <div class="box question">
-        <span> {{ this.MMmyJson[this.MMcompteurQuestion].intitule }}</span>
+        <span> {{ MMmyJson[MMcompteurQuestion].intitule }}</span>
       </div>
       <div class="box reponse">
         <div class="checkbox">
-          <input type="checkbox" id="value1"/> <span class="box spanRep"> {{this.MMmyJson[this.MMcompteurQuestion].reponses[0].value}} </span>
+          <input v-model="MMvalue1" type="checkbox" id="value1"/> <span class="box spanRep"> {{MMmyJson[MMcompteurQuestion].reponses[0].value}} </span>
           <br>
-          <input type="checkbox" id="value2"/> <span class="box spanRep"> {{this.MMmyJson[this.MMcompteurQuestion].reponses[1].value}} </span>
+          <input v-model="MMvalue2" type="checkbox" id="value2"/> <span class="box spanRep"> {{MMmyJson[MMcompteurQuestion].reponses[1].value}} </span>
           <br>
-          <input type="checkbox" id="value3"/> <span class="box spanRep"> {{this.MMmyJson[this.MMcompteurQuestion].reponses[2].value}} </span>
+          <input v-model="MMvalue3" type="checkbox" id="value3"/> <span class="box spanRep"> {{MMmyJson[MMcompteurQuestion].reponses[2].value}} </span>
           <br>
         </div>
-        <button type="submit" v-on:click="MMnextQuestion()"> Send</button>
+        <button v-on:click="MMnextQuestion()"> Question suivante</button>
       </div>
 
       <!-- Valeur fausse pour futur feature (Recuperation des donnees du formulaire) -->
@@ -88,7 +88,8 @@
 
   export default {
     name: 'questionnaire',
-    data: () => ({
+    data () {
+      return {
       MMcompteurQuestion: 0,
       MMmyJson: MMJson.question,
       MMcompteurPoints: 0,
@@ -96,27 +97,26 @@
       MMvalue1: false,
       MMvalue2: false,
       MMvalue3: false
-    }),
+      }
+    },
     components: {
       UserDetails,
     },
     methods: {
       MMnextQuestion: function () {
-        console.log("Nbre question :" + (this.MMcompteurQuestion + 1 ));
-        this.MMcompteurQuestion++;
-        this.MMvalue1 = document.getElementById("value1");
-        this.MMvalue2 = document.getElementById("value2");
-        this.MMvalue3 = document.getElementById("value3");
 
-        if ((this.MMvalue1.checked == this.MMmyJson[this.MMcompteurQuestion-1].reponses[0].checked && this.MMvalue1.checked == true) || (this.MMvalue2.checked == this.MMmyJson[this.MMcompteurQuestion-1].reponses[1].checked && this.MMvalue2.checked == true) || (this.MMvalue3.checked == this.MMmyJson[this.MMcompteurQuestion-1].reponses[2].checked && this.MMvalue3.checked == true)) {
+        console.log("Nbre question :" + (this.MMcompteurQuestion + 1  ));
+        this.MMcompteurQuestion++;
+        if ((this.MMvalue1 && this.MMmyJson[this.MMcompteurQuestion-1].reponses[0].checked)
+          || (this.MMvalue2 && this.MMmyJson[this.MMcompteurQuestion-1].reponses[1].checked)
+          || (this.MMvalue3 && this.MMmyJson[this.MMcompteurQuestion-1].reponses[2].checked)) {
           this.MMcompteurPoints++;
         }
 
         console.log("Nbre bonnes reponses : " + this.MMcompteurPoints);
 
-
         if (this.MMcompteurQuestion == MMJson.limite_question) {
-          location.replace('https://mrpopiette.github.io');
+          this.$router.push("/");
           // future page de resultat
         } else {
           this.MMvalue1 = false;

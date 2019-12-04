@@ -1,16 +1,16 @@
 <template>
   <div class="Form">
     <form>
-      <label v-on:input="prenom" class="label_prenom" name="prenom">Prenom : </label>
-      <input  required type="text" placeholder="Prenom"/>
+      <label  class="label_prenom" name="prenom">Prenom : </label>
+      <input v-model="prenom" type="text" placeholder="Prenom"/>
       <br>
       <label class="label_nom" name="nom">Nom : </label>
-      <input required type="text" placeholder="Nom"/>
+      <input v-model="nom" type="text" placeholder="Nom"/>
       <br>
       <label  class="label_societe" name="societe">Votre societe : </label>
-      <input required type="text" placeholder="Nom de votre societe"/>
+      <input v-model="societe" type="text" placeholder="Nom de votre societe"/>
       <br>
-       <button id="text_submit" type="submit" v-on:click="login()">Commencer le test</button>
+       <button id="text_submit" v-on:click="login()">Commencer le test</button>
     </form>
   </div>
 </template>
@@ -20,13 +20,12 @@
 
 export default {
   name: 'MMForm',
-  data () {
+  data : function() {
     return {
-      input: {
         prenom: '',
         nom: '',
         societe: ''
-      }
+
     }
   },
   methods: {
@@ -39,7 +38,7 @@ export default {
         // PROD :  location.replace('https://mrpopiette.github.io/?#/questionnaire')
         // DEV : location.replace('http://localhost:8080/#/questionnaire')
 
-        location.replace('https://mrpopiette.github.io/?#/questionnaire');
+        this.$router.push('questionnaire')
       } else {
         console.log('SPARTAAAAAAAAAAA')
       }
